@@ -1,16 +1,25 @@
+{% extends 'crdMarque/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
 </head>
+
+
 <body>
+
+{%block content%}
+<h1>Modifiez votre voiture</h1>
     <form method="post" action="/crudMarque/traitementupdate/{{id}}">
         {% csrf_token %} <!-- code permettant de protéger votre application en évitant
 de rejouer un formulaire avec des droits différents -->
         {{ form.as_ul }} <!-- permet d'afficher tous les champs sous forme d'une liste
 -->
-        <input type="submit" value="envoyer les données"\>
+        <input id="envoi" type="submit" value="envoyer les modifications"\>
     </form>
+{%endblock%}
 </body>
 </html>

@@ -1,17 +1,38 @@
-<!DOCTYPE html>
+{% extends 'crdMarque/base.html' %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
 </head>
+
+
+
+
+
 <body>
-<a href="ajout/"> ajouter une voiture </a>
+{% block content %}
+<h1>Bienvenue sur la page d'accueil de la Concession RT</h1>
+
  <ol>
         {% for l in liste %}
-            <li> {{l}}  <a href="affiche/{{l.id}}"> afficher les détails </a> <a href="delete/{{l.id}}"> effacer </a>
-                <a href="update/{{l.id}}"> mise à jour </a></li>
+     <li> <table>{{l}} </table> <div class="button" id="button-3">
+        <div id="circle"></div>
+        <a href="affiche/{{l.id}}">Détails</a>
+      </div>
+      <div class="button" id="button-3">
+        <div id="circle"></div>
+        <a href="delete/{{l.id}}"> effacer </a>
+      </div>
+      <div class="button" id="button-3">
+        <div id="circle"></div>
+        <a href="update/{{l.id}}"> mise à jour </a>
+      </div>
+      
+      </li>
         {%endfor%}
     </ol>
+{% endblock %}
 </body>
 </html>
-
