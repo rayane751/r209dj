@@ -14,3 +14,14 @@ class MarqForm(ModelForm):
             'chevaux' : _('Chevaux')
         }
         localized_fields = ('year',)
+class StockForm(ModelForm):
+    class Meta:
+        model = models.Stock
+
+        fields = {'couleur', 'pack', 'prix', 'quantite',}
+        labels = {
+            'couleur': _('Couleur'),
+            'pack': _('Pack'),
+            'prix': _('Prix'),
+            'quantite': _('Quantité'),
+        }

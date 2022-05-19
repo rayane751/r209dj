@@ -1,3 +1,4 @@
+{% extends 'crdMarque/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +6,21 @@
     <title>Title</title>
 </head>
 <body>
+{% block content %}
 <h1>Ajoutez votre voiture</h1>
-   {% if id != '' %}
-        <form method="post" action="/crudMarque/traitementupdate/{{id}}">
-    {% else %}
-            <form method="post" action="/crudMarque/traitement/}">
-    {% endif %}
+{% if id != '' %}
+<form action="/formule1/updatetraitementpilote/{{id}}/" method="post">
 
-   {% csrf_token %}
-   {{ form.as_ul }}
-        <input type="submit" value="envoyer les données"\>
+    {% else %}
+    <form action="/formule1/affichepilote/" method="post">
+        {% endif %}
+
+        {% csrf_token %}
+        {{form.as_ul}}
+        <input type="submit" value="Ajouter le stock"/>
+
+
     </form>
+    {% endblock %}
 </body>
 </html>

@@ -22,8 +22,7 @@ class Marque (models.Model):
 class Stock(models.Model):
     couleur = models.CharField(max_length=100)
     pack = models.CharField(max_length=50)
-    prix = models.CharField(max_length=False)
-
+    prix = models.CharField(max_length=100)
     quantite = models.IntegerField(blank=True)
 
     def __str__(self):
