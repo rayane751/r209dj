@@ -19,3 +19,18 @@ class Marque (models.Model):
         return  {"Marque": self.nom,"modele":self.modele,"pays":self.pays,"année":self.year,"chevaux":self.chevaux}
 
 
+class Stock(models.Model):
+    couleur = models.CharField(max_length=100)
+    pack = models.CharField(max_length=50)
+    prix = models.CharField(max_length=False)
+
+    quantite = models.IntegerField(blank=True)
+
+    def __str__(self):
+        chainee = f" {self.couleur} avec le pack {self.pack} ,il y en a {self.quantite} , à partir de {self.prix}"
+
+        return chainee
+
+    def dicoo(self):
+        return {"couleur": self.couleur, "pack": self.pack, "quantité": self.quantite, "prix": self.prix}
+
